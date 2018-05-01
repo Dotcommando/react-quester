@@ -6,7 +6,11 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
-    res.send({type: 'POST'});
+    res.send({
+        type: 'POST',
+        name: req.body.name,
+        rank: req.body.rank
+    });
 });
 
 router.put('/users/:id', function(req, res) {
