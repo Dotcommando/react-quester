@@ -7,13 +7,10 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
-    var user = new User(req.body);
-    user.save();
-    res.send({
-        type: 'POST',
-        username: req.body.username,
-        password: req.body.password,
-        active: req.body.active
+    // var user = new User(req.body);
+    // user.save();
+    User.create(req.body).then(function(user){
+        res.send(user);
     });
 });
 
