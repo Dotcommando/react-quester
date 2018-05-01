@@ -6,10 +6,12 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/users', function(req, res) {
+    console.log(req.body);
     res.send({
         type: 'POST',
-        name: req.body.name,
-        rank: req.body.rank
+        username: req.body.username,
+        password: req.body.password,
+        active: req.body.active
     });
 });
 
