@@ -1,12 +1,14 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 
 router.get('/users', function(req, res) {
     res.send({type: 'GET'});
 });
 
 router.post('/users', function(req, res) {
-    console.log(req.body);
+    var user = new User(req.body);
+    user.save();
     res.send({
         type: 'POST',
         username: req.body.username,
