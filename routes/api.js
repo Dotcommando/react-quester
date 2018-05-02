@@ -19,6 +19,9 @@ router.put('/users/:id', function(req, res, next) {
 });
 
 router.delete('/users/:id', function(req, res, next) {
+    User.findByIdAndRemove({_id: req.params.id}).then(function(user){
+        res.send(user);
+    }).catch(next);
     res.send({type: 'DELETE'});
 });
 
